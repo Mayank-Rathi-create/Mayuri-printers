@@ -70,26 +70,26 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Col 3: Export Logistics */}
+          {/* Col 3: Major Clients & Supply Network */}
           <div className="space-y-3">
             <h4 className="text-xs font-technical font-semibold uppercase text-[#F5F3ED] tracking-wider">
-              Paper Export Ports
+              Clients & Supply Network
             </h4>
-            <ul className="space-y-2 text-xs">
-              <li className="flex items-center gap-1.5">
-                <Globe className="w-3.5 h-3.5 text-[#D6AD61]" />
-                <span className="text-[#F5F3ED]">Nhava Sheva (JNPT), Mumbai</span>
+            <ul className="space-y-2.5 text-xs">
+              <li className="flex items-center gap-2">
+                <CheckCircle className="w-3.5 h-3.5 text-[#D6AD61] shrink-0" />
+                <span className="text-[#F5F3ED] font-medium">Reliance Spinning Mills</span>
               </li>
-              <li className="flex items-center gap-1.5">
-                <Globe className="w-3.5 h-3.5 text-[#D6AD61]" />
-                <span className="text-[#F5F3ED]">Mundra Port, Gujarat</span>
+              <li className="flex items-center gap-2">
+                <CheckCircle className="w-3.5 h-3.5 text-[#D6AD61] shrink-0" />
+                <span className="text-[#F5F3ED] font-medium">Local Shops & Companies</span>
               </li>
-              <li className="flex items-center gap-1.5">
-                <Globe className="w-3.5 h-3.5 text-[#D6AD61]" />
-                <span className="text-[#F5F3ED]">Kolkata & Haldia Port</span>
+              <li className="flex items-center gap-2">
+                <Globe className="w-3.5 h-3.5 text-[#D6AD61] shrink-0" />
+                <span className="text-[#F5F3ED] font-medium">Export to Banaras</span>
               </li>
-              <li className="text-[11px] text-[#A1A8B5] pt-1">
-                FCL ocean freight supplies across Middle East, Africa, Europe & South Asia.
+              <li className="text-[11px] text-[#A1A8B5] pt-1 leading-relaxed">
+                Trusted regional distribution partner supplying commercial printing & paper products across industrial enterprises, local retail, and cross-border exports.
               </li>
             </ul>
           </div>

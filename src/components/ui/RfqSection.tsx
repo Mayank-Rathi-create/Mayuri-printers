@@ -92,28 +92,33 @@ export const RfqSection: React.FC<RfqSectionProps> = ({ initialCategory = '' }) 
                 Reviewed by our factory print estimators. Guaranteed itemized quotation within 4 hours.
               </p>
 
-              {/* Progress Steps */}
+              {/* Progress Steps (Step 1 only turns yellow once a product is selected) */}
               <div className="grid grid-cols-3 gap-2 mt-6">
                 {[
                   { num: 1, label: 'Select Product' },
                   { num: 2, label: 'Size & Quantity' },
                   { num: 3, label: 'Contact Details' },
-                ].map((s) => (
-                  <div key={s.num} className="space-y-1">
-                    <div
-                      className={`h-1.5 rounded-full transition-all ${
-                        step >= s.num ? 'bg-[#D6AD61]' : 'bg-[#292F3B]'
-                      }`}
-                    />
-                    <div
-                      className={`text-[10px] font-technical uppercase truncate ${
-                        step === s.num ? 'text-[#D6AD61] font-semibold' : 'text-[#A1A8B5]'
-                      }`}
-                    >
-                      {s.num}. {s.label}
+                ].map((s) => {
+                  const isHighlighted = s.num === 1 ? (Boolean(formData.category) || step > 1) : step >= s.num;
+                  const isTextHighlighted = s.num === 1 ? (Boolean(formData.category) || step > 1) : step === s.num;
+
+                  return (
+                    <div key={s.num} className="space-y-1">
+                      <div
+                        className={`h-1.5 rounded-full transition-all duration-300 ${
+                          isHighlighted ? 'bg-[#D6AD61]' : 'bg-[#292F3B]'
+                        }`}
+                      />
+                      <div
+                        className={`text-[10px] font-technical uppercase truncate transition-colors duration-200 ${
+                          isTextHighlighted ? 'text-[#D6AD61] font-semibold' : 'text-[#A1A8B5]'
+                        }`}
+                      >
+                        {s.num}. {s.label}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
