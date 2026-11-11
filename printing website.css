@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@layer base {
+    :root {
+        --color-slate: #0E1116;
+        --color-slate-light: #161B22;
+        --color-slate-card: #12161F;
+        --color-slate-border: #232B3B;
+        --color-ivory: #F7F5F0;
+        --color-bronze: #C89D56;
+        --color-bronze-light: #E2BC7A;
+        --color-bronze-dark: #987232;
+        --color-steel: #858E9B;
+    }
+
+    body {
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        background-color: #0E1116;
+        color: #F7F5F0;
+        overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    .font-editorial {
+        font-family: 'Fraunces', Georgia, serif;
+    }
+
+    code,
+    pre,
+    .font-technical {
+        font-family: 'JetBrains Mono', monospace;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0E1116;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #232B3B;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #C89D56;
+}
+
+/* Tactile paper texture background overlay */
+.paper-grain {
+    background-image: radial-gradient(rgba(200, 157, 86, 0.08) 1px, transparent 0);
+    background-size: 24px 24px;
+}
+
+.subtle-grid {
+    background-size: 40px 40px;
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Metallic foil sheen animation */
+@keyframes foil-shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.foil-gold-text {
+    background: linear-gradient(135deg, #F9E7B9 0%, #C89D56 35%, #FFF0D0 50%, #B88534 70%, #E8BE78 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
