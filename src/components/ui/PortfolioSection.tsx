@@ -236,11 +236,11 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = () => {
               {/* Case Details */}
               <div className="p-6 lg:p-7 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-2.5 mb-4">
-                    <div className="w-8 h-8 rounded-lg bg-[#1A202B] text-[#D6AD61] flex items-center justify-center border border-[#292F3B]">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 rounded-lg bg-[#1A202B] text-[#D6AD61] flex items-center justify-center border border-[#292F3B] shrink-0">
                       <Icon className="w-4 h-4" />
                     </div>
-                    <span className="text-[11px] font-technical px-2.5 py-0.5 rounded-md bg-[#1A202B] text-[#D6AD61] border border-[#292F3B] font-medium">
+                    <span className="text-base sm:text-lg font-technical font-bold text-[#D6AD61] tracking-wide">
                       {item.productName}
                     </span>
                   </div>
