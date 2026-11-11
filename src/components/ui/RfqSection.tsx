@@ -15,7 +15,7 @@ interface RfqSectionProps {
   initialCategory?: string;
 }
 
-export const RfqSection: React.FC<RfqSectionProps> = ({ initialCategory = 'billbooks' }) => {
+export const RfqSection: React.FC<RfqSectionProps> = ({ initialCategory = '' }) => {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [submitted, setSubmitted] = useState(false);
   const [quoteId, setQuoteId] = useState('');
@@ -27,10 +27,10 @@ export const RfqSection: React.FC<RfqSectionProps> = ({ initialCategory = 'billb
     email: '',
     phone: '',
     category: initialCategory,
-    productType: 'Carbonless Triplicate Bill Book (A5)',
+    productType: 'Standard A4 / A5 Offset Format',
     quantity: 500,
     customNotes: '',
-    needSampleBox: true,
+    needSampleBox: false,
   });
 
   const handleSimulateUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -121,9 +121,16 @@ export const RfqSection: React.FC<RfqSectionProps> = ({ initialCategory = 'billb
               {/* STEP 1: Product Selection */}
               {step === 1 && (
                 <div className="space-y-4">
-                  <label className="text-xs font-technical text-[#F5F3ED] block font-semibold">
-                    CHOOSE WHAT YOU NEED PRINTED
-                  </label>
+                  <div className="flex items-center justify-between">
+                    <label className="text-xs font-technical text-[#F5F3ED] block font-semibold">
+                      CHOOSE WHAT YOU NEED PRINTED
+                    </label>
+                    {!formData.category && (
+                      <span className="text-[11px] font-technical text-[#D6AD61]">
+                        Please select an option to continue
+                      </span>
+                    )}
+                  </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {[
                       {
@@ -151,7 +158,7 @@ export const RfqSection: React.FC<RfqSectionProps> = ({ initialCategory = 'billb
                         type="button"
                         key={cat.id}
                         onClick={() => setFormData({ ...formData, category: cat.id })}
-                        className={`p-4 rounded-xl border text-left transition-all ${
+                        className={`p-4 rounded-xl border text-left transition-all cursor-pointer ${
                           formData.category === cat.id
                             ? 'bg-[#1A202B] border-[#D6AD61] text-[#F5F3ED] shadow-sm'
                             : 'bg-[#090B10] border-[#292F3B] text-[#A1A8B5] hover:border-[#D6AD61]/30 hover:text-[#F5F3ED]'
@@ -285,20 +292,6 @@ export const RfqSection: React.FC<RfqSectionProps> = ({ initialCategory = 'billb
                       />
                     </div>
                   </div>
-
-                  {/* Free Sample Box Checkbox */}
-                  <div className="p-3.5 rounded-xl bg-[#1A202B] border border-[#292F3B] flex items-center gap-3">
-                    <input
-                      type="checkbox"
-                      id="sampleBox"
-                      checked={formData.needSampleBox}
-                      onChange={(e) => setFormData({ ...formData, needSampleBox: e.target.checked })}
-                      className="accent-[#D6AD61] w-4 h-4 cursor-pointer"
-                    />
-                    <label htmlFor="sampleBox" className="cursor-pointer text-xs text-[#A1A8B5]">
-                      <strong className="text-[#F5F3ED]">Also send me a free Mayuri Paper Sample Box</strong> with real paper swatches and foil shade cards.
-                    </label>
-                  </div>
                 </div>
               )}
 
@@ -308,7 +301,7 @@ export const RfqSection: React.FC<RfqSectionProps> = ({ initialCategory = 'billb
                   <button
                     type="button"
                     onClick={() => setStep((s) => (s - 1) as any)}
-                    className="px-4 py-2.5 rounded-xl text-xs font-semibold text-[#A1A8B5] hover:text-[#F5F3ED] bg-[#1A202B] border border-[#292F3B] flex items-center gap-1.5 transition-colors"
+                    className="px-4 py-2.5 rounded-xl text-xs font-semibold text-[#A1A8B5] hover:text-[#F5F3ED] bg-[#1A202B] border border-[#292F3B] flex items-center gap-1.5 transition-colors cursor-pointer"
                   >
                     <ArrowLeft className="w-3.5 h-3.5" />
                     <span>Previous</span>
@@ -320,8 +313,16 @@ export const RfqSection: React.FC<RfqSectionProps> = ({ initialCategory = 'billb
                 {step < 3 ? (
                   <button
                     type="button"
-                    onClick={() => setStep((s) => (s + 1) as any)}
-                    className="px-5 py-2.5 rounded-xl text-xs font-semibold bg-[#D6AD61] hover:bg-[#E0BC74] text-[#090B10] flex items-center gap-1.5 shadow-sm transition-all"
+                    disabled={step === 1 && !formData.category}
+                    onClick={() => {
+                      if (step === 1 && !formData.category) return;
+                      setStep((s) => (s + 1) as any);
+                    }}
+                    className={`px-5 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 shadow-sm transition-all ${
+                      step === 1 && !formData.category
+                        ? 'bg-[#1C222E] text-[#A1A8B5] border border-[#2B3545] cursor-not-allowed opacity-60'
+                        : 'bg-[#D6AD61] hover:bg-[#E0BC74] text-[#090B10] cursor-pointer'
+                    }`}
                   >
                     <span>Next Step</span>
                     <ArrowRight className="w-3.5 h-3.5" />

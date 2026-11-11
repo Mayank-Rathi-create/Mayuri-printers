@@ -9,7 +9,7 @@ import { Footer } from './components/ui/Footer';
 export function App() {
   const [unit, setUnit] = useState<'metric' | 'imperial'>('metric');
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
-  const [rfqCategory, setRfqCategory] = useState<string>('billbooks');
+  const [rfqCategory, setRfqCategory] = useState<string>('');
 
   const scrollToRfq = () => {
     const el = document.getElementById('rfq-section');
