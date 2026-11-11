@@ -1,11 +1,11 @@
 import React from 'react';
-import { Star, GraduationCap, Store, Award, Building, ArrowRight } from 'lucide-react';
+import { Star, GraduationCap, Store, Award, Building } from 'lucide-react';
 
 interface PortfolioSectionProps {
-  onRequestQuote: (category: string) => void;
+  onRequestQuote?: (category: string) => void;
 }
 
-export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onRequestQuote }) => {
+export const PortfolioSection: React.FC<PortfolioSectionProps> = () => {
   const projects = [
     {
       id: 'proj-1',
@@ -254,21 +254,6 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onRequestQuo
                       <span className="text-[#D6AD61] text-right truncate max-w-[280px]">{item.specs}</span>
                     </div>
                   </div>
-                </div>
-
-                {/* Bottom Card Controls */}
-                <div className="mt-6 pt-4 border-t border-[#292F3B] flex items-center justify-between text-xs text-[#A1A8B5]">
-                  <button
-                    onClick={() => onRequestQuote(item.category)}
-                    className="flex items-center gap-1.5 text-[#D6AD61] hover:text-[#E0BC74] font-technical font-semibold transition-colors cursor-pointer"
-                  >
-                    <span>Request Similar Specification</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-
-                  <span className="text-[10px] font-technical text-[#A1A8B5]">
-                    QC Passed & Delivered
-                  </span>
                 </div>
               </div>
             </div>
