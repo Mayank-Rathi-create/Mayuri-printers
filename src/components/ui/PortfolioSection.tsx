@@ -10,6 +10,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = () => {
     {
       id: 'proj-1',
       category: 'academic',
+      productName: 'Textbooks',
       client: 'National Academic Board & Apex University',
       title: 'State Curriculum Textbooks & Examination Answer Booklets',
       volume: '650,000 Bound Books (A4 / 280 Pages)',
@@ -49,6 +50,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = () => {
     {
       id: 'proj-2',
       category: 'retail',
+      productName: 'Bill Books',
       client: 'Tata Croma & Regional Supermarket Retail Chain',
       title: 'High-Security Triplicate Carbonless GST Bill Books',
       volume: '180,000 Triplicate Pads (50 Sets Each)',
@@ -100,6 +102,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = () => {
     {
       id: 'proj-3',
       category: 'corporate',
+      productName: 'Visiting Cards',
       client: 'Heritage Private Wealth & Sovereign Partners',
       title: 'Bespoke Executive Stationery & Triplex Visiting Cards',
       volume: '35,000 Executive Sets',
@@ -142,6 +145,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = () => {
     {
       id: 'proj-4',
       category: 'certificates',
+      productName: 'Certificates',
       client: 'State Technical University & Medical Council',
       title: 'Anti-Counterfeit Degree Certificates with 24K Hot Foil Seals',
       volume: '320,000 Certificates',
@@ -228,15 +232,12 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = () => {
               {/* Case Details */}
               <div className="p-6 lg:p-7 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-lg bg-[#1A202B] text-[#D6AD61] flex items-center justify-center border border-[#292F3B]">
-                        <Icon className="w-4 h-4" />
-                      </div>
-                      <span className="text-xs font-technical text-[#A1A8B5] uppercase tracking-wider">{item.client}</span>
+                  <div className="flex items-center gap-2.5 mb-4">
+                    <div className="w-8 h-8 rounded-lg bg-[#1A202B] text-[#D6AD61] flex items-center justify-center border border-[#292F3B]">
+                      <Icon className="w-4 h-4" />
                     </div>
                     <span className="text-[11px] font-technical px-2.5 py-0.5 rounded-md bg-[#1A202B] text-[#D6AD61] border border-[#292F3B] font-medium">
-                      {item.tag}
+                      {item.productName}
                     </span>
                   </div>
 
