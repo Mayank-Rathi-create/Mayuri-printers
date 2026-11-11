@@ -11,12 +11,13 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = () => {
       id: 'proj-1',
       category: 'academic',
       productName: 'Textbooks',
-      client: 'National Academic Board & Apex University',
       title: 'State Curriculum Textbooks & Examination Answer Booklets',
-      volume: '650,000 Bound Books (A4 / 280 Pages)',
-      specs: '70 GSM High-Opacity Maplitho, Smyth-Sewn Lay-Flat Thread Binding, Matte Lamination with Spot UV',
-      quote: 'Mayuri completed our semester delivery 10 days ahead of schedule with zero binding failures across 40 campus distribution centers.',
-      author: 'Dr. R. Ramanathan, Director of Examinations',
+      typesAvailable: [
+        { label: 'Available Sizes', value: 'A4, A5, Crown 1/4, Royal Octavo & Custom' },
+        { label: 'Pages / Extent', value: '64 to 500+ Pages (Custom Page Counts)' },
+        { label: 'Print Colours', value: 'Single Color (B/W), 2-Color, Full Color CMYK' },
+        { label: 'Binding Types', value: 'Smyth-Sewn Hardcover, Perfect Bound, Saddle Stitch' },
+      ],
       icon: GraduationCap,
       tag: 'Academic Publishing',
       accentColor: '#3B82F6',
@@ -51,12 +52,13 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = () => {
       id: 'proj-2',
       category: 'retail',
       productName: 'Bill Books',
-      client: 'Tata Croma & Regional Supermarket Retail Chain',
       title: 'High-Security Triplicate Carbonless GST Bill Books',
-      volume: '180,000 Triplicate Pads (50 Sets Each)',
-      specs: '56 GSM White CB / 53 GSM Pink CFB / 57 GSM Yellow CF, 6-Digit Crash Red Serial Numbering, Buckram Cloth Spines',
-      quote: 'The micro-capsule carbonless transfer is the sharpest we have tested. Clear legibility on the third accounts leaf even with ballpoint pens.',
-      author: 'Sunil Mehta, VP Supply Chain Operations',
+      typesAvailable: [
+        { label: 'Available Sizes', value: '1/4 Demy, 1/6 Demy, 1/8 Demy, A4, A5 & Pocket' },
+        { label: 'Pages & Copies', value: 'Duplicate (2-Part), Triplicate (3-Part), 4-Part (50–100 Sets)' },
+        { label: 'Paper Colours', value: 'White, Pink, Yellow, Blue, Green NCR Carbonless' },
+        { label: 'Binding & Finish', value: 'Red Crash Numbering, Perforated & Cloth Spine' },
+      ],
       icon: Store,
       tag: 'Retail & Commercial',
       accentColor: '#F59E0B',
@@ -103,12 +105,13 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = () => {
       id: 'proj-3',
       category: 'corporate',
       productName: 'Visiting Cards',
-      client: 'Heritage Private Wealth & Sovereign Partners',
       title: 'Bespoke Executive Stationery & Triplex Visiting Cards',
-      volume: '35,000 Executive Sets',
-      specs: '700 GSM Triplex Sandwich Cotton Board, 24K Hot Stamping Foil, Deep Blind Debossing, Gold Leaf Edge Gilding',
-      quote: 'The tactile weight and edge-gilding of our partner cards reflect our institutional heritage. A true masterpiece of print craftsmanship.',
-      author: 'Ananya Deshmukh, Head of Corporate Brand',
+      typesAvailable: [
+        { label: 'Available Sizes', value: 'Standard (89×51mm / 3.5"×2"), Square & Custom Die-Cut' },
+        { label: 'Paper & GSM', value: '350 GSM Art Card, 700 GSM Triplex Cotton Board, Kraft' },
+        { label: 'Colours & Foils', value: '24K Gold, Silver, Rose Gold Hot Foil & Spot UV' },
+        { label: 'Edge Finishes', value: 'Matte / Velvet Touch, Gold Leaf Edge Gilding, Rounded' },
+      ],
       icon: Building,
       tag: 'Executive Identity',
       accentColor: '#D6AD61',
@@ -146,12 +149,13 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = () => {
       id: 'proj-4',
       category: 'certificates',
       productName: 'Certificates',
-      client: 'State Technical University & Medical Council',
       title: 'Anti-Counterfeit Degree Certificates with 24K Hot Foil Seals',
-      volume: '320,000 Certificates',
-      specs: '320 GSM Heavy Parchment, High-Security Guilloche Rosette Border, 24K Hot Stamped Holographic Seal, Micro-Text Attestation',
-      quote: 'Mayuri’s security printing standards and anti-counterfeit foil stamping guaranteed zero fraudulent degree duplicates across our convocations.',
-      author: 'Prof. K. Sundaram, Controller of Examinations',
+      typesAvailable: [
+        { label: 'Available Sizes', value: 'A4, Legal, A3 & Custom University Diploma' },
+        { label: 'Paper & GSM', value: '250–350 GSM Heavy Parchment, Linen Texture, Non-Tearable' },
+        { label: 'Colours & Foil', value: '24K Gold / Silver Embossed Foil Seals & Multi-Color Borders' },
+        { label: 'Security Types', value: 'Guilloche Rosette Border, Hologram Strip, Anti-Copy Tint' },
+      ],
       icon: Award,
       tag: 'Certificates',
       accentColor: '#10B981',
@@ -245,15 +249,17 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = () => {
                     {item.title}
                   </h3>
 
+                  {/* Types Available (Sizes, Pages, Colours, Finishes) */}
                   <div className="mt-4 p-3.5 rounded-xl bg-[#1A202B] border border-[#292F3B] space-y-2 text-xs font-technical">
-                    <div className="flex justify-between items-center">
-                      <span className="text-[#A1A8B5]">Delivered Volume:</span>
-                      <span className="text-[#F5F3ED] font-semibold">{item.volume}</span>
+                    <div className="text-[11px] font-technical uppercase font-semibold text-[#D6AD61] pb-1.5 border-b border-[#292F3B] flex items-center justify-between">
+                      <span>Available Types & Options</span>
                     </div>
-                    <div className="flex justify-between items-center gap-2">
-                      <span className="text-[#A1A8B5] shrink-0">Specifications:</span>
-                      <span className="text-[#D6AD61] text-right truncate max-w-[280px]">{item.specs}</span>
-                    </div>
+                    {item.typesAvailable.map((opt, idx) => (
+                      <div key={idx} className="flex justify-between items-start gap-2 pt-0.5">
+                        <span className="text-[#A1A8B5] shrink-0">{opt.label}:</span>
+                        <span className="text-[#F5F3ED] text-right font-medium">{opt.value}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
